@@ -17,18 +17,18 @@
             {% for cat in category %}
             
                 <tr class="table-active">
-                <th scope="row">{{cat.id}}</th>
-                <td>{{cat.nom}}</td>
-                <td>{{cat.description}}</td>
-                <td>
-                    <a class="btn btn-outline-info"href="{{path('cat_create')}}">Nouvelle catégorie</a>
-                </td>
-                <td>
-                    <a class="btn btn-outline-warning"href="{{path('modifier',{id:cat.id})}}">Modifier</a>
-                </td>
-                <td>
-                    <a class="btn btn-outline-danger"href="#">Supprimer</a> 
-                </td>
+                    <th scope="row">{{cat.id}}</th>
+                    <td>{{cat.nom}}</td>
+                    <td>{{cat.description}}</td>
+                    <td>
+                        <a class="btn btn-outline-info"href="{{path('cat_create')}}">Nouvelle catégorie</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-warning"href="{{path('modifier',{id:cat.id})}}">Modifier</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-danger"href="#">Supprimer</a> 
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>

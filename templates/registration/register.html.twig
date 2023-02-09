@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}s'enregistrer{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <h1>Créer un compte</h1>
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.nom) }}
@@ -12,8 +12,10 @@
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.agreeTerms,{
+            label:"les conditions d'utilisations"
+        }) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn btn-outline-primary">Créer mon compte</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
