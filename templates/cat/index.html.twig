@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les catégories{% endblock %}
+
+{% block body %}
+    {% if category is not empty  %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Description</th>
+                <th scope="col" class="text-center" colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for cat in category %}
+            
+                <tr class="table-active">
+                <th scope="row">{{cat.id}}</th>
+                <td>{{cat.nom}}</td>
+                <td>{{cat.description}}</td>
+                <td>
+                    <a class="btn btn-outline-info"href="{{path('cat_create')}}">Nouvelle catégorie</a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-warning"href="{{path('modifier',{id:cat.id})}}">Modifier</a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-danger"href="#">Supprimer</a> 
+                </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    <a class="btn btn-outline-primary"href="{{path('home')}}">Retour accueil</a>
+{% endblock %}

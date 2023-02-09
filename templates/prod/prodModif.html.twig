@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if mode %}
+        Modification 
+    {% else %}
+        Création
+        {% endif %}
+{% endblock %}
+
+{% block body %}
+    <h1>
+        {% if mode %}
+            Modification d'un produit
+        {% else %}
+            Création d'un produit
+        {% endif %}
+    </h1>
+
+    {{ form_start(formProd) }}
+        {{ form_row(formProd.nom,{label: 'Nom' }) }}
+        {{ form_row(formProd.description,{label: 'Description' }) }}
+        {{ form_row(formProd.picture,{label: 'picture' }) }}
+        {{ form_row(formProd.categorie,{label: 'Catégorie' }) }}
+        {{ form_row(formProd.prix, {
+            label: 'Prix'
+        }) }}
+         
+        {% if mode %}
+            <button type="submit" class="btn btn-outline-primary m-2">Modifier le produit</button>
+        {% else %}
+            <button type="submit" class="btn btn-outline-primary m-2">Créer un produit</button>
+        {% endif %}
+    {{ form_end(formProd) }}
+
+{% endblock %}
