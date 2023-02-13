@@ -22,7 +22,7 @@
             </div>
 
             <div class="card-body">
-                <a class="btn btn-outline-primary" href="#">Ajouter au panier</a>
+                <a class="btn btn-outline-primary" href="{{path('cart_add',{id:prod.id})}}">Ajouter au panier</a>
                 {% if is_granted('ROLE_ADMIN') %}
                     
                     <a class="btn btn-outline-info" href="{{path('create')}}">Nouveau produit</a>

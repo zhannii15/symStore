@@ -6,33 +6,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav me-auto">
-                {% if is_granted('ROLE_ADMIN') %}
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{path('home')}}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{path('prod_index')}}">Produits</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{path('app_cat')}}">Catégories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Panier</a>
-                    </li>
-                    <li class="nav-item">
-                    {% if not app.user %}
-                        <a class="nav-link" href="{{path('app_login')}}">Connexion</a>
-                    {% else %}
-                        <a class="nav-link" href="{{path('app_logout')}}">Déconnexion</a>
-                    {% endif %}   
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{path('app_user')}}">Les utilisateurs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                {% else %}
                 <li class="nav-item">
                     <a class="nav-link active" href="{{path('home')}}">Home</a>
                 </li>
@@ -40,15 +13,25 @@
                     <a class="nav-link" href="{{path('prod_index')}}">Produits</a>
                 </li>
                 <li class="nav-item">
-                    {% if not app.user %}
-                        <a class="nav-link" href="{{path('app_login')}}">Connexion</a>
-                    {% else %}
-                        <a class="nav-link" href="{{path('app_logout')}}">Déconnexion</a>
-                    {% endif %}   
+                    <a class="nav-link" href="{{path('app_cat')}}">Catégories</a>
                 </li>
-                {% endif %}
-
-            </ul>  
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('app_user')}}">Les utilisateurs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('cart_index')}}">Panier</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+            </ul> 
+            <form class="d-flex m-2">
+                {% if not app.user %}
+                    <a class="nav-link" href="{{path('app_login')}}">Connexion</a>
+                {% else %}
+                    <a class="nav-link" href="{{path('app_logout')}}">Déconnexion</a>
+                {% endif %}   
+            </form>
         </div>
     </div>
 </nav>

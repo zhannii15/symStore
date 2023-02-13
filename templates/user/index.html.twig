@@ -23,9 +23,12 @@
                     <td>{{user.nom}}</td>
                     <td>{{user.prenom}}</td>
                     <td>{{user.email}}</td>
-                    <td>{{user.roles}}</td>
+                    <td>{{ user.roles ? user.roleStr}}</td>
                     <td>
-                        <a class="btn btn-outline-info"href="">Modifier</a>
+                        <a class="btn btn-outline-info"href="#">info</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-warning"href="#">Modifier</a>
                     </td>
                     <td>
                         <a class="btn btn-outline-danger"href="#">Supprimer</a> 

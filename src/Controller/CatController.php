@@ -34,7 +34,7 @@ class CatController extends AbstractController
             $em->persist($category);
             $em->flush();
 
-            return $this->redirectToroute('app_cat');
+            return $this->redirectToRoute('app_cat');
         }
     
         return $this->render('cat/catModif.html.twig',[

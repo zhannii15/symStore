@@ -26,7 +26,6 @@ class ProdController extends AbstractController
             'produit'=>$produit,
         ]);
     }
-    #[isGranted('ROLE_ADMIN')]
 
     #[Route('/prod/modify/{id}', name:'modify')]
     #[Route('/prod/create', name:'create')]
@@ -42,7 +41,7 @@ class ProdController extends AbstractController
                 $em->persist($produit);
                 $em->flush();
 
-                return $this->redirectToroute('prod_index');
+                return $this->redirectToRoute('prod_index');
             }
         
             return $this->render('prod/prodModif.html.twig',[
