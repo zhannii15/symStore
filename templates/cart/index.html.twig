@@ -4,37 +4,39 @@
 
 {% block body %}
     <h1 class="text-center">Votre panier</h1>
-        {% set sommeTotal = 0 %}
-        
 
         {% if cartData is not empty  %}
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Produit</th>
-                    <th scope="col">Prix</th>
-                    <th scope="col">(-)Quantité(+)</th>
-                    <th scope="col">Total</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for cart in cartData %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Produit</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col">(-)Quantité(+)</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for cart in cartData %}
             
-                <tr class="table-active">
-                    <th scope="row">{{cart.prod.id}}</th>
-                    <td>{{cart.prod.nom}}</td>
-                    <td>{{cart.prod.prix}}</td>
-                    <td><a class="btn btn-primary"href="{{path('cart_decremente',{id:cart.prod.id})}}">-</a>{{cart.qtite}} <a class="btn btn-primary" href="{{path('cart_add',{id:cart.prod.id})}}"> + </a> </td>
-                    <td>{{cart.qtite * cart.prod.prix}}</td>   
-                </tr>
-            {% endfor %}
-            </tbody>
-            <tfoot>
-                <th scope="row" colspan="4" >Somme Total</th>
-                <td>{{total}}</td>
-            </tfoot>
-        </table>
-    {% endif %}
+                    <tr class="table-active">
+                        <th scope="row">{{cart.prod.id}}</th>
+                        <td>{{cart.prod.nom}}</td>
+                        <td>{{cart.prod.prix}}</td>
+                        <td><a class="btn btn-primary"href="{{path('cart_decremente',{id:cart.prod.id})}}">-</a>{{cart.qtite}} <a class="btn btn-primary" href="{{path('cart_add',{id:cart.prod.id})}}"> + </a> </td>
+                        <td>{{cart.qtite * cart.prod.prix}}</td> 
+                        <td>
+                            <a class="btn btn-outline-warning" href="{{path('cart_del',{id:cart.prod.id})}}">Supprimer</a>
+                        </td>  
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                    <th scope="col" colspan="4" >Somme Total</th>
+                    <td>{{total}}</td>
+                </tfoot>
+            </table>
+        {% endif %}
     <a class="btn btn-outline-primary"href="{{path('home')}}">Retour accueil</a>
 {% endblock %}
