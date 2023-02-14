@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\CategorieRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CategorieRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
 class Categorie
@@ -13,14 +14,18 @@ class Categorie
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['read_cat'])]
     private ?int $id = null;
 
+    #[Groups(['read_cat'])]
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
+    #[Groups(['read_cat'])]
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
+    
     #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Produit::class)]
     private Collection $produits;
 
